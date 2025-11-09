@@ -1,9 +1,11 @@
-from flask import Flask
-import of
-app = Flask(_name_)
-@app.route('/')
-def index():
-  return "✅️ Aqua par Semey bot is running!"
-  if _name_ == '_main_':
-    port = int(os.environ.get('PORT',5000))
-    app.run(host='0.0.0.0', port=port)
+def main():
+    # Здесь твой код Telegram-бота
+    # Например:
+    from telegram.ext import ApplicationBuilder, CommandHandler
+
+    async def start(update, context):
+        await update.message.reply_text("Привет! Я Aqua Par Semey бот 🌊")
+
+    app = ApplicationBuilder().token("ТВОЙ_ТОКЕН").build()
+    app.add_handler(CommandHandler("start", start))
+    app.run_polling()
